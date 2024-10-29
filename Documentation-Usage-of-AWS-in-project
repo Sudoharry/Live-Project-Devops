@@ -1,0 +1,31 @@
+This script will retrieve information about EC2 instances, S3 buckets, and Lambda functions, and save the output to a report file.
+
+
+Explanation of the Script:
+
+Check AWS CLI: The script checks if the AWS CLI is installed. If not, it prompts the user to install it and exits.
+
+Output File: The script creates a report file named aws_usage_report.txt.
+
+EC2 Instances: It retrieves information about EC2 instances, including their ID, type, state, and launch time.
+
+S3 Buckets: It lists all S3 buckets in the account.
+
+Lambda Functions: It lists the names, runtimes, and last modified dates of Lambda functions.
+
+Error Handling: If any AWS command fails, the error messages will be appended to the report file.
+
+Completion Message: At the end, it confirms that the report has been generated and saved.
+----------------------------------------------------------------------------------------------------------------------------------
+
+SUMMARY OF ERROR HANDLING MANAGEMENT:
+
+I encountered errors while trying to execute my script with the command sh <file-name.sh> To resolve this, I installed the AWS CLI using the commands: 
+   1) sudo snap install aws-cli
+   2) sudo snap install aws-cli --classic
+ -Initially, I had not configured the AWS CLI, which led to further issues. To configure it, I ran command "aws configure", but my user access key had not been generated yet.
+
+- To fix this, I navigated to the AWS Management Console, went to AWS Profiles > Security Credentials, and created a new access key.
+After generating the access key, I ran "aws configure" again with the new credentials. Finally, this resolved the issue, and the AWS CLI commands started working correctly.
+
+
