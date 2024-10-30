@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#
 # Function to check if the script has the required command-line arguments
 function helper {
     expected_cmd_args=2
