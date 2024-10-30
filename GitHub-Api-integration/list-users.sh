@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Function to check if the script has the required command-line arguments
+function helper {
+    expected_cmd_args=2
+    if [ $# -ne $expected_cmd_args ]; then
+        echo "Please execute the script with the required command-line arguments."
+        echo "Usage: ./script_name <repo_owner> <repo_name>"
+        exit 1
+    fi
+}
+
 # GitHub API URL
 API_URL="https://api.github.com"
 
@@ -35,6 +45,9 @@ function list_users_with_read_access {
         echo "$collaborators"
     fi
 }
+
+# Check for required command-line arguments
+helper "$@"
 
 # Main script
 
