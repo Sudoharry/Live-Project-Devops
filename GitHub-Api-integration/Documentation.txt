@@ -1,0 +1,24 @@
+A Beginner’s Guide: Setting Up and Running a GitHub-API-Intergration Script on AWS EC2
+
+STEP 1: Launch an EC2 instance within the AWS Cloud.
+
+STEP 2: Connect to the EC2 instance you just created. Use SSH to connect by referencing your private key file, like "example.pem", and the public IP of your instance.
+
+STEP 3: Update your system to ensure it is up-to-date. Use the command sudo apt update to update all the packages on your system.
+
+STEP 4: Clone the repository from GitHub by running the command git clone "paste-the-link-of-your-repository". This will copy the contents of the repository to your instance.
+
+STEP 5: Verify that the files have been copied by listing the contents of the directory. Use ls to display all files in the current directory, confirming that the repository files have been successfully cloned.
+
+STEP 6: Navigate to the folder containing the cloned files. Use cd <directory-name> to move into the directory. To confirm that the list-users.sh file is in the folder, use ls to list all files within it.
+
+STEP 7: Set up your GitHub username and token as environment variables to allow access. Use the following 
+        commands: export username="your-username" and export token="your-token". You need to create a token from your GitHub account by going to Settings > Developer settings > Personal access tokens. 
+         When creating the token, avoid granting admin or edit permissions in case the token is compromised, and do not share it with anyone.
+
+STEP 8: Run the list-users.sh file. The command to execute the file is ./list-users.sh <repository-name> <repository-file>. 
+      Here, <repository-name> is the name of your organization’s repository, and <repository-file> is the file you are checking within the repository.
+
+Error Handling: If you encounter permission issues, grant the necessary access to the list-users.sh file using chmod 777 list-users.sh.
+
+Output: After successfully running the script, you will see a list of users who have access to the specified directory.
