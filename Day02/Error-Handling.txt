@@ -1,0 +1,61 @@
+Troubleshooting Docker Compose and Deployment Issues
+
+1. Address Already in Use Error
+Issue: The port is already in use by another process.
+Solution:
+Identify the process using the port (80 or 8000) using lsof or equivalent.
+Terminate the conflicting process or choose a different port for the service in the docker-compose.yml file.
+
+2. Container Name Conflict
+Issue: A container with the same name already exists.
+Solution:
+Remove the existing container using the container ID or name.
+Alternatively, rename the container in the docker-compose.yml.
+
+3. No Permission to Read from Files
+Issue: Insufficient permissions to access or read certain files (e.g., #ib_16384_0.dblwr).
+Solution:
+Ensure the appropriate permissions for the directory and files.
+Use chmod to modify file permissions or adjust the file ownership if needed.
+
+4. Memory or Disk Space Issues
+Issue: Insufficient disk space or memory (e.g., error with mysql.ibd).
+Solution:
+Free up disk space by removing unnecessary files or containers.
+Ensure that the Docker containers have enough disk space and memory allocated.
+
+5. YAML Formatting Errors in Docker Compose
+Issue: Incorrect YAML syntax (e.g., incorrect use of spaces, missing colons).
+Solution:
+Check for indentation errors and ensure that each key is properly mapped with values.
+Use YAML validators to check the correctness of the file.
+
+6. Cannot Find or Read Dockerfile
+Issue: Dockerfile is missing or misplaced.
+Solution:
+Ensure the Dockerfile exists in the correct directory specified in the docker-compose.yml file.
+If missing, create a valid Dockerfile or update the path in docker-compose.yml accordingly.
+
+7. Build Context Issues (e.g., permissions or invalid files)
+Issue: The build context or files required for the build are inaccessible.
+Solution:
+Verify the file paths in the docker-compose.yml.
+Ensure all necessary files (e.g., requirements.txt, .env) are present and readable.
+
+8. Docker Networking Issues (Binding Ports)
+Issue: Docker can't bind to the specified port (80, 8000, etc.).
+Solution:
+Identify other services or processes occupying the port.
+Change the port mapping in docker-compose.yml or stop the service using the port.
+9. Service Dependency Issues
+
+Issue: One service cannot start due to dependency issues (e.g., database not available).
+Solution:
+Ensure that services are correctly ordered in docker-compose.yml using the depends_on key.
+Check the health check conditions to ensure services are started in the correct sequence.
+
+10. File Permission or Volume Mount Issues
+Issue: Cannot read from or write to mounted volumes (e.g., MySQL database files).
+Solution:
+Ensure the volumes specified in the docker-compose.yml file have correct permissions.
+Adjust the file ownership or ensure Docker has sufficient access to the directories.
