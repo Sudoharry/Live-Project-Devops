@@ -1,0 +1,74 @@
+                        ###TROUBLESHOOTING WITH FULL REPORT####
+         #####Common Errors and Solutions in EC2 Instance Creation Script#####
+
+  1. Error: set: Illegal option -o pipefail
+     #Cause: The pipefail option is not supported in some shells (e.g., sh instead of bash).
+
+     #Solution:
+     Ensure the script is executed using bash by specifying the correct shebang: #!/bin/bash.
+     Avoid running the script in environments where bash is unavailable or incompatible.
+
+2. Error: Duplicate EC2 Instance Creation
+   #Cause: The script always creates a new instance, even if an instance with the same name already exists.
+
+   #Solution:
+   Add a function to check for an existing instance by filtering instances with the same name using AWS CLI:
+
+  check_existing_instance() {
+    local instance_name="$1"
+    existing_instance_id=$(aws ec2 describe-instances \
+        --filters "Name=tag:Name,Values=$instance_name" \
+        --query 'Reservations[0].Instances[0].InstanceId' \
+        --output text)
+    if [[ "$existing_instance_id" != "None" ]]; then
+        echo "Instance with name $instance_name already exists: $existing_instance_id"
+        exit 0
+    fi
+ }
+- Call this function inside the create_ec2_instance function before creating a new instance.
+
+3. #Error: Instance Name Duplication Check Not Working
+
+   #Cause: The check_existing_instance function wasn’t called at the right place in the script.
+
+  #Solution:
+  Place the call to check_existing_instance inside the create_ec2_instance function, just before running the AWS CLI command to create an EC2 instance.
+
+4. #Error: Missing Parameters in AWS CLI Command
+
+   #Cause: The AWS CLI command for creating an EC2 instance didn’t include required parameters (e.g., ImageId).
+
+  #Solution:
+  Ensure all parameters are set correctly:
+  AMI_ID: The AMI ID for the EC2 instance.
+  KEY_NAME: The SSH key pair name.
+  SUBNET_ID: The subnet ID.
+  SECURITY_GROUP_IDS: The security group ID(s).
+  Example:
+  AMI_ID="ami-0dee22c13ea7a9a67"
+  INSTANCE_TYPE="t2.micro"
+  KEY_NAME="my-key-pair"
+  SUBNET_ID="subnet-0d00acbc704f9d27d"
+  SECURITY_GROUP_IDS="sg-0b0a9c38fcc7e30d1"
+
+5. #Error: AWS CLI Not Installed
+
+  #Cause: The AWS CLI is not installed on the system.
+
+  #Solution: 
+  curl -s "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  unzip awscliv2.zip
+  sudo ./aws/install
+
+6. #Error: Check for Existing Instance Not Running
+
+   #Cause: The check_existing_instance function wasn’t called properly.
+
+   #Solution:
+   Ensure the function is invoked before creating a new instance:
+
+  
+
+
+
+
