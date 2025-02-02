@@ -39,6 +39,7 @@ A Flask-based web application that recommends AWS services based on user require
 
 
 ## File structure 
+```
 aws-architecture-recommender/
 ├── app.py                 # Main application logic
 ├── requirements.txt       # Dependencies
@@ -50,6 +51,7 @@ aws-architecture-recommender/
 │   ├── result.html
 │   └── history.html
 └── recommendations.db     # SQLite database
+```
 
 ## Installation 🛠️
 
