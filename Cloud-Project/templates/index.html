@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Solution Recommendation Tool</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+        }
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Heading -->
+        <h1 class="text-center mb-4">Cloud Solution Recommendation Tool</h1>
+
+        <!-- Form -->
+        <form method="POST" class="bg-white p-4 rounded shadow">
+            <!-- Application Type -->
+            <div class="mb-3">
+                <label for="application_type" class="form-label">Application Type:</label>
+                <select name="application_type" id="application_type" class="form-select">
+                    <option value="Microservices">Microservices</option>
+                    <option value="Serverless">Serverless</option>
+                    <option value="Monolithic">Monolithic</option>
+                </select>
+            </div>
+
+            <!-- Traffic -->
+            <div class="mb-3">
+                <label for="traffic" class="form-label">Traffic:</label>
+                <select name="traffic" id="traffic" class="form-select">
+                    <option value="Low">Low</option>
+                    <option value="High">High</option>
+                </select>
+            </div>
+
+            <!-- Database Type -->
+            <div class="mb-3">
+                <label for="database_type" class="form-label">Database Type:</label>
+                <select name="database_type" id="database_type" class="form-select">
+                    <option value="SQL">SQL</option>
+                    <option value="NoSQL">NoSQL</option>
+                </select>
+            </div>
+
+            <!-- Region -->
+            <div class="mb-3">
+                <label for="region" class="form-label">Region:</label>
+                <input type="text" name="region" id="region" class="form-control" placeholder="Enter region (e.g., us-east-1)">
+            </div>
+
+            <!-- Cost Constraint -->
+            <div class="mb-3">
+                <label for="cost_constraint" class="form-label">Cost Constraint:</label>
+                <input type="text" name="cost_constraint" id="cost_constraint" class="form-control" placeholder="Enter cost constraint (e.g., $100/month)">
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Get Recommendations</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Cloud Solution Recommendation Tool. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

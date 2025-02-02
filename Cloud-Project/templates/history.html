@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+</head>
+<body>
+    <h1>Past Recommendations</h1>
+    <ul>
+        {% for recommendation in recommendations %}
+            <li>
+                <strong>Application Type:</strong> {{ recommendation.application_type }}<br>
+                <strong>Traffic:</strong> {{ recommendation.traffic }}<br>
+                <strong>Database Type:</strong> {{ recommendation.database_type }}<br>
+                <strong>Services:</strong> {{ recommendation.services }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

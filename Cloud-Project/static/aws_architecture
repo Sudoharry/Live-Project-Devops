@@ -1,0 +1,10 @@
+digraph {
+	bgcolor=white
+	User [label=User fillcolor=lightblue shape=ellipse style=filled]
+	"EKS or ECS" [label="EKS or ECS" fillcolor=lightgray shape=box style=filled]
+	User -> "EKS or ECS"
+	"ALB + Auto Scaling + CloudFront" [label="ALB + Auto Scaling + CloudFront" fillcolor=lightgray shape=box style=filled]
+	User -> "ALB + Auto Scaling + CloudFront"
+	DynamoDB [label=DynamoDB fillcolor=lightgray shape=box style=filled]
+	User -> DynamoDB
+}
