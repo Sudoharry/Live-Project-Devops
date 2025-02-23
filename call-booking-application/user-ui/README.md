@@ -1,18 +1,18 @@
 # User-Ui
 
-- Application run on port ``` 3000 ```
+- run on port ``` 3000 ```
 
-- USER UI Application to connect with USER API, it expects .env file ( below should the data in .env file )
+- USER UI Micro service to connect with USER API, it expects .env file ( below should the data in .env file )
 
 ```
 REACT_APP_API_URL= <url_of_user_api_application>
 ```
 
-- Command to build the application ``` npm install ```
+- Command to build  ``` npm install ```
 
-- Command to start the application ``` npm start ```
+- Command to start  ``` npm start ```
 
-- To check application health there is a endpoint which is ``` http://machine-ip:port/health```
+- To check micro service  health there is a endpoint which is ``` http://machine-ip:port/health```
 
 
 # User front end page 
